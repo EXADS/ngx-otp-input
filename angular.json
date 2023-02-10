@@ -153,9 +153,8 @@
       }
     }
   },
+  "defaultProject": "ngx-otp-input-demo",
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }

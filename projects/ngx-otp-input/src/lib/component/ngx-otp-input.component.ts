@@ -13,11 +13,7 @@ import {
   ChangeDetectorRef,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import {
-  UntypedFormArray,
-  UntypedFormControl,
-  Validators,
-} from '@angular/forms';
+import { FormArray, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { NgxOtpInputService } from '../ngx-otp-input.service';
 import {
@@ -33,7 +29,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxOtpInputComponent implements OnInit, AfterViewInit, OnDestroy {
-  ngxOtpArray = new UntypedFormArray([]);
+  ngxOtpArray = new FormArray([]);
   ariaLabels: string[] = [];
   pattern!: RegExp;
   styles: string[][] = [];
@@ -174,9 +170,7 @@ export class NgxOtpInputComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private setUpOtpForm(): void {
     for (let i = 0; i < this.otpConfig.otpLength; i++) {
-      this.ngxOtpArray.push(
-        new UntypedFormControl(null, [Validators.required])
-      );
+      this.ngxOtpArray.push(new FormControl(null, [Validators.required]));
     }
   }
 
@@ -272,8 +266,8 @@ export class NgxOtpInputComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  private getFormControlByIndex(index: number): UntypedFormControl {
-    return this.ngxOtpArray.controls[index] as UntypedFormControl;
+  private getFormControlByIndex(index: number): FormControl {
+    return this.ngxOtpArray.controls[index] as FormControl;
   }
 
   private addStyle(index: number, styles: string | string[]): void {
