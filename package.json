@@ -12,7 +12,8 @@
     "lint": "ng lint",
     "lint-lib": "ng lint ngx-otp-input",
     "e2e": "ng e2e",
-    "watch-lib": "ng build ngx-otp-input --watch"
+    "watch-lib": "ng build ngx-otp-input --watch",
+    "publish:package": "npm run build-lib && cd dist/ngx-otp-input && npm publish && cd ../../"
   },
   "private": true,
   "dependencies": {
